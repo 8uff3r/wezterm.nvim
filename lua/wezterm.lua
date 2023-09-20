@@ -151,6 +151,10 @@ function wezterm.split_pane.vertical(opts)
   if opts.top_level then
     table.insert(args, "--top-level")
   end
+  if opts.cwd then
+    table.insert(args, "--cwd")
+    table.insert(args, opts.cwd)
+  end
   if opts.move_pane then
     if opts.program then
       err("split: move_pane and program are mutually exclusive")
@@ -188,6 +192,10 @@ function wezterm.split_pane.horizontal(opts)
   end
   if opts.top_level then
     table.insert(args, "--top-level")
+  end
+  if opts.cwd then
+    table.insert(args, "--cwd")
+    table.insert(args, opts.cwd)
   end
   if opts.move_pane then
     if opts.program then
